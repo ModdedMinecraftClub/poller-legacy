@@ -30,8 +30,8 @@ async function getRawChartData() {
     let from = document.getElementById("from").value;
     let to = document.getElementById("to").value;
 
-    from = moment(from).format("MM-DD-YYYY");
-    to = moment(to).format("MM-DD-YYYY");
+    from = moment(from).format("YYYY-MM-DD");
+    to = moment(to).format("YYYY-MM-DD");
 
     const url = `https://poller.moddedminecraft.club/get_pings.php?start_date=${from}&end_date=${to}`;
 
