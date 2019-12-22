@@ -2,6 +2,7 @@ body {
     font-family: 'Montserrat', sans-serif;
     margin-top: 7%;
     text-align: center;
+    width: 100%;
 }
 
 input {
@@ -12,4 +13,8 @@ input {
 button {
     font-family: 'Montserrat', sans-serif;
     margin-top: 1%;
+}
+
+canvas {
+    display: inline;
 }
