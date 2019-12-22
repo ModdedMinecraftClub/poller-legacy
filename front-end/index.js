@@ -1,5 +1,5 @@
-function onSubmit() {
-    let datasets = getDatasets();
+async function onSubmit() {
+    let datasets = await getDatasets();
 
     renderChart(datasets);
 }
@@ -26,38 +26,25 @@ function renderChart(datasets) {
     });
 }
 
-function getRawChartData() {
-    // placeholder
-    let data = [
-        {
-            pingTime: "2019-12-15 19:20:32",
-            server: {
-                id: 0,
-                name: "ATM3R"
-            },
-            players: {
-                online: 10,
-                max: 100
-            }
-        },
-        {
-            pingTime: "2019-12-15 19:22:00",
-            server: {
-                id: 1,
-                name: "Beyond"
-            },
-            players: {
-                online: 7,
-                max: 100
-            }
-        }
-    ]
+async function getRawChartData() {
+    let from = document.getElementById("from").value;
+    let to = document.getElementById("to").value;
+    let url = `https://poller.moddedminecraft.club/get_pings.php?start_date${from}=&end_date=${to}`;
 
-    return data;
+    let response = await fetch(url);
+
+    if (response.ok) {
+        let json = await response.json();
+        
+        return json;
+    } else {
+        alert("HTTP-Error: " + response.status);
+
+        return null;
+    }
 }
 
 function getListOfUniqueIds(rawData) {
-
     let uniqueIds = [...new Set(rawData.map(p => p.server.id))]
     let arr = [];
 
@@ -91,15 +78,15 @@ function getPoints(id, rawData) {
 }
 
 function getLabel(id, rawData) {
-    for(let i = 0; i < rawData.length; i++) {
+    for (let i = 0; i < rawData.length; i++) {
         if (rawData[i].server.id == id) {
             return rawData[i].server.name;
         }
     }
 }
 
-function getDatasets() {
-    let rawData = getRawChartData();
+async function getDatasets() {
+    let rawData = await getRawChartData();
     let uniqueIds = getListOfUniqueIds(rawData);
     let datasets = [];
 
@@ -119,8 +106,6 @@ function getDatasets() {
 
     return datasets;
 }
-
-
 
 function random_rgba() {
     let o = Math.round, r = Math.random, s = 255;
