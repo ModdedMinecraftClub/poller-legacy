@@ -11,8 +11,8 @@
 
   echo "[\n";
   $statement = $db->prepare('SELECT pings.serverId,pings.pingTime,pings.playersOnline,pings.playersMax,server.serverName FROM pings INNER JOIN server ON server.serverId=pings.serverId WHERE pings.pingTime<=:end AND pings.pingTime>=:start');
-  $statement->bindParam('end', $_GET['end_date']);
-  $statement->bindParam('start', $_GET['start_date']);
+  $statement->bindParam('end', $_GET['end_date'] . ' 00:00:00');
+  $statement->bindParam('start', $_GET['start_date'] . ' 23:59:59');
   $statement->execute();
   $found_something = false;
   while($row = $statement->fetch()){
