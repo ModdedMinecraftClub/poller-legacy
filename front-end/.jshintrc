@@ -1,4 +1,5 @@
 {
+    "esversion": 8,
     "quotmark": "double",
-    "esversion": 8
+    "varstmt": true
 }
