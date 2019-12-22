@@ -15,8 +15,11 @@ function renderChart(datasets) {
             responsive: false,
             scales: {
                 xAxes: [{
-                    type: 'linear',
-                    position: 'bottom'
+                    ticks: {
+                        userCallback: function (label, index, labels) {
+                            return moment(label).format("YYYY-MM-DD HH:mm");
+                        }
+                    }
                 }]
             }
         }
@@ -88,15 +91,11 @@ function getPoints(id, rawData) {
 }
 
 function getLabel(id, rawData) {
-    let arr = [];
-
-    rawData.forEach(p => {
-        if (p.server.id == id) {
-            arr.push(p.server.name);
+    for(let i = 0; i < rawData.length; i++) {
+        if (rawData[i].server.id == id) {
+            return rawData[i].server.name;
         }
-    });
-
-    return arr[0];
+    }
 }
 
 function getDatasets() {
@@ -125,5 +124,5 @@ function getDatasets() {
 
 function random_rgba() {
     let o = Math.round, r = Math.random, s = 255;
-    return 'rgba(' + o(r()*s) + ',' + o(r()*s) + ',' + o(r()*s) + ',' + r().toFixed(1) + ')';
+    return 'rgba(' + o(r() * s) + ',' + o(r() * s) + ',' + o(r() * s) + ',' + r().toFixed(1) + ')';
 }
