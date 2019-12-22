@@ -7,18 +7,24 @@
     <meta content="text/html;charset=utf-8" http-equiv="Content-Type">
     <meta content="utf-8" http-equiv="encoding">
 
+    
+    <link href="https://fonts.googleapis.com/css?family=Montserrat&display=swap" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="./index.css">
+
     <script src="./moment.js"></script>
     <script src="./Chart.bundle.min.js"></script>
     <script src="./index.js"></script>
 </head>
 
 <body>
+    <h1>MMCC Poller</h1>
+
     <div id="form">
-        From:<br>
+        <b>From:</b><br>
         <input type="date" id="from"><br>
-        To:<br>
+        <b>To:</b><br>
         <input type="date" id="to">
-        <br><br><button onclick="onSubmit()">Submit</button><br>
+        <br><button onclick="onSubmit()">Submit</button><br>
     </div>
 
     <canvas id="myChart" width="400" height="400"></canvas>
