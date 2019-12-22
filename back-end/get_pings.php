@@ -14,7 +14,9 @@
   $statement->bindParam('end', $_GET['end_date']);
   $statement->bindParam('start', $_GET['start_date']);
   $statement->execute();
+  $found_something = false;
   while($row = $statement->fetch()){
+    $found_something = true;
     $ping_time = $row['pingTime'];
     $server_name = $row['serverName'];
     $server_id = $row['serverId'];
@@ -32,9 +34,11 @@
       }
     },\n";
   }
-  $buffer = ob_get_clean();
-  $buffer2 = substr($buffer, 0, strlen($buffer)-2);
-  echo $buffer2;
+  if($found_something){
+    $buffer = ob_get_clean();
+    $buffer2 = substr($buffer, 0, strlen($buffer)-2);
+    echo $buffer2;
+  }
   echo "\n";
   echo "]";
 ?>
