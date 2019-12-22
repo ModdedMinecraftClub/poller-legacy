@@ -1,13 +1,13 @@
 async function onSubmit() {
-    let datasets = await getDatasets();
+    const datasets = await getDatasets();
 
     renderChart(datasets);
 }
 
 function renderChart(datasets) {
-    let ctx = document.getElementById('myChart').getContext('2d');
-    let myChart = new Chart(ctx, {
-        type: 'scatter',
+    const ctx = document.getElementById("myChart").getContext("2d");
+    const myChart = new Chart(ctx, {
+        type: "scatter",
         data: {
             datasets: datasets
         },
@@ -27,14 +27,14 @@ function renderChart(datasets) {
 }
 
 async function getRawChartData() {
-    let from = document.getElementById("from").value;
-    let to = document.getElementById("to").value;
-    let url = `https://poller.moddedminecraft.club/get_pings.php?start_date${from}=&end_date=${to}`;
+    const from = document.getElementById("from").value;
+    const to = document.getElementById("to").value;
+    const url = `https://poller.moddedminecraft.club/get_pings.php?start_date${from}=&end_date=${to}`;
 
-    let response = await fetch(url);
+    const response = await fetch(url);
 
     if (response.ok) {
-        let json = await response.json();
+        const json = await response.json();
         
         return json;
     } else {
@@ -45,14 +45,14 @@ async function getRawChartData() {
 }
 
 function getListOfUniqueIds(rawData) {
-    let uniqueIds = [...new Set(rawData.map(p => p.server.id))]
+    const uniqueIds = [...new Set(rawData.map(p => p.server.id))];
     let arr = [];
 
     uniqueIds.forEach(element => {
-        var obj = {
+        const obj = {
             id: element,
             color: random_rgba()
-        }
+        };
 
         arr.push(obj);
     });
@@ -68,7 +68,7 @@ function getPoints(id, rawData) {
             const point = {
                 x: moment(p.pingTime),
                 y: p.players.online
-            }
+            };
 
             arr.push(point);
         }
@@ -86,8 +86,8 @@ function getLabel(id, rawData) {
 }
 
 async function getDatasets() {
-    let rawData = await getRawChartData();
-    let uniqueIds = getListOfUniqueIds(rawData);
+    const rawData = await getRawChartData();
+    const uniqueIds = getListOfUniqueIds(rawData);
     let datasets = [];
 
     uniqueIds.forEach(id => {
@@ -99,7 +99,7 @@ async function getDatasets() {
             borderColor: id.color,
             backgroundColor: id.color,
             data: d
-        }
+        };
 
         datasets.push(dataset);
     });
@@ -109,5 +109,5 @@ async function getDatasets() {
 
 function random_rgba() {
     let o = Math.round, r = Math.random, s = 255;
-    return 'rgba(' + o(r() * s) + ',' + o(r() * s) + ',' + o(r() * s) + ',' + r().toFixed(1) + ')';
+    return "rgba(" + o(r() * s) + "," + o(r() * s) + "," + o(r() * s) + "," + r().toFixed(1) + ")";
 }
