@@ -102,6 +102,7 @@ async function getDatasets() {
             label: l,
             borderColor: id.color,
             backgroundColor: id.color,
+            showLine: true,
             data: d
         };
 
