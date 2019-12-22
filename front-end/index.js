@@ -29,7 +29,7 @@ function renderChart(datasets) {
 async function getRawChartData() {
     const from = document.getElementById("from").value;
     const to = document.getElementById("to").value;
-    const url = `https://poller.moddedminecraft.club/get_pings.php?start_date${from}=&end_date=${to}`;
+    const url = `https://poller.moddedminecraft.club/get_pings.php?start_date=${from}&end_date=${to}`;
 
     const response = await fetch(url);
 
