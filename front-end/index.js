@@ -27,8 +27,12 @@ function renderChart(datasets) {
 }
 
 async function getRawChartData() {
-    const from = document.getElementById("from").value;
-    const to = document.getElementById("to").value;
+    let from = document.getElementById("from").value;
+    let to = document.getElementById("to").value;
+
+    from = moment(from).format("MM-DD-YYYY");
+    to = moment(to).format("MM-DD-YYYY");
+
     const url = `https://poller.moddedminecraft.club/get_pings.php?start_date=${from}&end_date=${to}`;
 
     const response = await fetch(url);
@@ -98,6 +102,7 @@ async function getDatasets() {
             label: l,
             borderColor: id.color,
             backgroundColor: id.color,
+            showLine: true,
             data: d
         };
 
