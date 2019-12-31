@@ -1,0 +1,12 @@
+# Don't include compiled binaries
+Build/
+bin/
+obj/
+
+# Don't include IDE specific files
+.idea
+.vs/
+.vscode/
+
+# Don't include user specific files
+*.user
