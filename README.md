@@ -3,7 +3,9 @@ Minecraft server analytics collector.
 
 Available at https://poller.moddedminecraft.club/.
 
-// Table
+| **Data Collector**  | [![License](https://img.shields.io/badge/license-LGPL--3.0-blue)](https://github.com/ModdedMinecraftClub/poller/blob/master/LICENSE) | ![lang](https://img.shields.io/badge/language-C%23-yellow)                        | [![Framework](https://img.shields.io/badge/framework-.NET%20Core%203.0-orange)](https://dotnet.microsoft.com/download) | [![Actions Status](https://github.com/ModdedMinecraftClub/poller/workflows/build/badge.svg)](https://github.com/ModdedMinecraftClub/poller/actions) |
+|----------|--------------------------------------------------------------------------------------------------------------------------------------|-----------------------------------------------------------------------------------|------------------------------------------------------------------------------------------------------------------------|-----------------------------------------------------------------------------------------------------------------------------------------------------|
+|  **Web App** | [![License](https://img.shields.io/badge/license-LGPL--3.0-blue)](https://github.com/ModdedMinecraftClub/poller/blob/master/LICENSE) | ![lang](https://img.shields.io/badge/language-JS%2FHTML%2FCSS%20%2B%20PHP-yellow) | -                                                                                                                      | -                                                                                                                                                   |
 
 ## Data collector
 Data collector is a C# app that collects data about the servers and inserts them into a MySQL database.
