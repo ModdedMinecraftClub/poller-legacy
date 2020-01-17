@@ -35,7 +35,7 @@ namespace ModdedMinecraftClub.Poller.Library
                 }
                 else
                 {
-                    Console.WriteLine($"[{DateTime.Now}]Server {server.ServerIp}:{server.ServerPort} is down.");
+                    Console.WriteLine($"[{DateTime.Now}] Server {server.ServerIp}:{server.ServerPort} is down.");
                 }
             }
 
