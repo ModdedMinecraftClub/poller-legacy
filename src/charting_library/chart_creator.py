@@ -17,11 +17,8 @@ def get_avg_chart(sql_response, timedelta: datetime.timedelta):
     for server in server_ids:
         old_data = core.get_chart_data_by_id(server, sql_response)
         new_data = core.get_avg(old_data, timedelta)
-        
-        dates = new_data['dates']
-        values = new_data['values']
 
-        ax.plot(dates, values, '-o', label=server_names[server], markersize=0)
+        ax.plot(new_data['dates'], new_data['values'], '-o', label=server_names[server], markersize=0)
     
     set_style(ax, get_formatter())
 
@@ -41,11 +38,8 @@ def get_raw_chart(sql_response):
 
     for server in server_ids:
         data = core.get_chart_data_by_id(server, sql_response)
-
-        dates = data['dates']
-        values = data['values']
-
-        ax.plot(dates, values, '-o', label=server_names[server])
+        
+        ax.plot(data['dates'], data['values'], '-o', label=server_names[server])
     
     set_style(ax, get_formatter())
     
