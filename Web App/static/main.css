@@ -1,0 +1,42 @@
+* {
+    font-family: 'Montserrat', sans-serif;
+}
+
+b {
+    font-size: 15px;
+}
+
+h1 {
+    margin-left: .5vw;
+    font-size: 30px;
+    align-self: left;
+}
+
+form * {
+    margin: 0 3px;
+}
+
+.main {
+    background: #343a40;
+    color: white;
+    width: 100%;
+    position: relative;
+    height: 70px;
+}
+
+.main div {
+    display: inline-block;
+    position: absolute;
+    height: 100%;
+}
+
+.left {
+    left: 1%;
+}
+
+.center {
+    left: 0%;
+    right: 0%;
+    top: 25%;
+    text-align: center;
+}

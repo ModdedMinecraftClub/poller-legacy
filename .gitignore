@@ -10,3 +10,6 @@ obj/
 
 # Don't include user specific files
 *.user
+
+*.pyc
+__pycache__
