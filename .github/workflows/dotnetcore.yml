@@ -14,5 +14,5 @@ jobs:
       with:
         dotnet-version: 3.0.100
     - name: Build with dotnet
-      working-directory: ./Data Collector/ModdedMinecraftClub.Poller
+      working-directory: ./src/data_collector/ModdedMinecraftClub.Poller
       run: dotnet build --configuration Release
