@@ -1,0 +1,5 @@
+# rename to db_config.yml before using
+host: '' # leave empty for localhost
+user: ''
+password: ''
+database_name: 'poller' # default name is 'poller'

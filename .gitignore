@@ -3,6 +3,13 @@ Build/
 bin/
 obj/
 
+# Don't include secrets
+db_config.yml
+
+# Don't ignore Python cache
+*.pyc
+__pycache__
+
 # Don't include IDE specific files
 .idea
 .vs/
@@ -11,5 +18,6 @@ obj/
 # Don't include user specific files
 *.user
 
-*.pyc
-__pycache__
+# Don't include example PNGs
+example1.png
+example2.png
