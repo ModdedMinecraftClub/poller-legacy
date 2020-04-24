@@ -12,6 +12,3 @@ def get_sql_response(start_date, end_date):
 config = get_config()
 db = Database()
 db.bind(provider='mysql', host=config['host'], user=config['user'], passwd=config['password'], db=config['database_name'])
-
-# serverId, pingTime, playersOnline, playersMax, server
-# print(get("2019-12-20", "2019-12-22")[0])
