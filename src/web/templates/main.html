@@ -13,7 +13,7 @@
 </head>
 
 <body>
-    <div class="main">
+    <div class="navbar">
         <div class="title left">
             <h1>MMCC Poller</h1>
         </div>
@@ -46,11 +46,15 @@
         </div>
     </div>
 
-    {% if img %}
-    <div class="center">
+    <div class="output">
+        {% if img %}
         <img src="data:image/png;base64, {{ img }}" alt="Poller result" />
+        {% endif %}
+        {% if error %}
+        <span>{{ error }}</span>
+        {% endif %}
     </div>
-    {% endif %}
+
 
 </body>
 

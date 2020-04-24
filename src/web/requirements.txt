@@ -1,0 +1,5 @@
+Flask==1.*
+matplotlib==3.*
+pony==0.*
+PyMySQL==0.*
+PyYAML==5.*
