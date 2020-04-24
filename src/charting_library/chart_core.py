@@ -1,13 +1,11 @@
 import datetime
-import matplotlib.dates as plt_dates
 from collections import OrderedDict
 
 def get_basic_info(sql_response):
     server_ids = get_unique_server_ids(sql_response)
     server_names = get_server_names(server_ids, sql_response)
-    formatter = get_formatter()
 
-    return {'ids': server_ids, 'names': server_names, 'formatter': formatter}
+    return {'ids': server_ids, 'names': server_names}
 
 def get_avg(old_dates_values_dict: dict, timedelta: datetime.timedelta):
     total_player_count = 0
@@ -68,7 +66,3 @@ def get_chart_data_by_id(id, sql_response):
             values_list.append(ping.playersOnline)
 
     return {'dates': dates_list, 'values': values_list}
-
-def get_formatter():
-    return plt_dates.DateFormatter('%Y-%m-%d %H:%M:%S')
-

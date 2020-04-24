@@ -1,6 +1,7 @@
 import io
 import datetime
 import chart_core as core
+import matplotlib.dates as plt_dates
 from matplotlib.figure import Figure
 from matplotlib.backends.backend_agg import FigureCanvasAgg as FigureCanvas
 
@@ -9,7 +10,6 @@ def get_avg_chart(sql_response, timedelta: datetime.timedelta):
 
     server_ids = info['ids']
     server_names = info['names']
-    formatter = info['formatter']
 
     fig = Figure(figsize=(22,11))
     ax = fig.add_subplot(1,1,1)
@@ -23,7 +23,7 @@ def get_avg_chart(sql_response, timedelta: datetime.timedelta):
 
         ax.plot(dates, values, '-o', label=server_names[server], markersize=0)
     
-    set_style(ax, formatter)
+    set_style(ax, get_formatter())
 
     output = io.BytesIO()
     FigureCanvas(fig).print_png(output)
@@ -35,7 +35,6 @@ def get_raw_chart(sql_response):
 
     server_ids = info['ids']
     server_names = info['names']
-    formatter = info['formatter']
 
     fig = Figure(figsize=(22,11))
     ax = fig.add_subplot(1,1,1)
@@ -48,7 +47,7 @@ def get_raw_chart(sql_response):
 
         ax.plot(dates, values, '-o', label=server_names[server])
     
-    set_style(ax, formatter)
+    set_style(ax, get_formatter())
     
     output = io.BytesIO()
     FigureCanvas(fig).print_png(output)
@@ -62,3 +61,6 @@ def set_style(ax, formatter):
     ax.set_ylabel('Players online')
     ax.legend()
     ax.grid(linestyle='--', linewidth=0.4)
+
+def get_formatter():
+    return plt_dates.DateFormatter('%Y-%m-%d %H:%M:%S')
