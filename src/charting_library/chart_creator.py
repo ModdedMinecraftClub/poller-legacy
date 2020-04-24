@@ -1,7 +1,6 @@
 import io
 import datetime
 import chart_core as core
-import matplotlib.pyplot as plt
 from matplotlib.figure import Figure
 from matplotlib.backends.backend_agg import FigureCanvasAgg as FigureCanvas
 
