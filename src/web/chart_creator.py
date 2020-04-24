@@ -20,7 +20,7 @@ def get_avg_chart(sql_response, timedelta: datetime.timedelta):
 
         ax.plot(new_data['dates'], new_data['values'], '-o', label=server_names[server], markersize=0)
     
-    set_style(ax, get_formatter())
+    set_style(ax)
 
     output = io.BytesIO()
     FigureCanvas(fig).print_png(output)
@@ -41,20 +41,19 @@ def get_raw_chart(sql_response):
         
         ax.plot(data['dates'], data['values'], '-o', label=server_names[server])
     
-    set_style(ax, get_formatter())
+    set_style(ax)
     
     output = io.BytesIO()
     FigureCanvas(fig).print_png(output)
 
     return output
 
-def set_style(ax, formatter):
+def set_style(ax):
+    formatter = plt_dates.DateFormatter('%Y-%m-%d %H:%M:%S')
+
     ax.xaxis.set_major_formatter(formatter)
     ax.set_title('MMCC Playerbase Statistics')
     ax.set_xlabel('Time')
     ax.set_ylabel('Players online')
     ax.legend()
     ax.grid(linestyle='--', linewidth=0.4)
-
-def get_formatter():
-    return plt_dates.DateFormatter('%Y-%m-%d %H:%M:%S')
