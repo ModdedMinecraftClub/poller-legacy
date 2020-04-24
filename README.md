@@ -3,37 +3,4 @@ Minecraft server analytics collector.
 
 Available at https://poller.moddedminecraft.club/.
 
-| **Data Collector**  | [![License](https://img.shields.io/badge/license-LGPL--3.0-blue)](https://github.com/ModdedMinecraftClub/poller/blob/master/LICENSE) | ![lang](https://img.shields.io/badge/language-C%23-yellow)                        | [![Framework](https://img.shields.io/badge/framework-.NET%20Core%203.0-orange)](https://dotnet.microsoft.com/download) | [![Actions Status](https://github.com/ModdedMinecraftClub/poller/workflows/build/badge.svg)](https://github.com/ModdedMinecraftClub/poller/actions) |
-|----------|--------------------------------------------------------------------------------------------------------------------------------------|-----------------------------------------------------------------------------------|------------------------------------------------------------------------------------------------------------------------|-----------------------------------------------------------------------------------------------------------------------------------------------------|
-|  **Web App** | [![License](https://img.shields.io/badge/license-LGPL--3.0-blue)](https://github.com/ModdedMinecraftClub/poller/blob/master/LICENSE) | ![lang](https://img.shields.io/badge/language-JS%2FHTML%2FCSS%20%2B%20PHP-yellow) | -                                                                                                                      | -                                                                                                                                                   |
-
-## Database
-Both the Data Collector and the Web App require a MySQL database to operate. Follow the steps below to prepare one.
-
-1. Run the `./prepare.sql` script to create the MySQL database and tables.
-2. Populate the `server` table with servers you want the `poller` to poll. In the `enabled` column `0` means `false` and `1` `true`.
-
-## Data collector
-Data collector is a C# app that collects data about the servers and inserts them into a MySQL database.
-
-### Dependencies
-
-#### If you want to build the data collector yourself:
-- .NET Core SDK >=3.0 
-- MySQL >=8.0
-
-#### If you want to use pre-compiled binaries:
-- .NET Core Runtime >=3.0 
-- MySQL >=8.0
-
-### Building the data collector
-**This step can be skipped by downloading the latest pre-compiled binaries from [here](https://github.com/ModdedMinecraftClub/poller/releases).**
-
-To build the data collector run the prepared `./Data Collector/buildLinux.sh` or `./Data Collector/buildWindows.ps1` (depending on your OS).
-
-### Running the data collector
-1. If you've built the data collector yourself go to `./Data Collector/Build`, otherwise go to the folder with the unzipped binaries that you've downloaded from the Releases page.
-2. Run the `dotnet ModdedMinecraftClub.Poller.App.dll Server Port Username Password` command (replace each command line argument (Server, Port, Username, Password) with your own data).
-
-## Web app
-The web application presents the collected data to the user in a nice chart. It utilizes PHP for the back-end and JS/HTML/CSS for front-end.
+**Currently undergoing a major re-write (WIP). This README will be updated once that's finished.**
