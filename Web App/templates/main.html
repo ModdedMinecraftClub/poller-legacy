@@ -8,41 +8,48 @@
     <meta content="utf-8" http-equiv="encoding">
 
     <link href="https://fonts.googleapis.com/css?family=Montserrat&display=swap" rel="stylesheet">
+    <link href="https://necolas.github.io/normalize.css/8.0.1/normalize.css" rel="stylesheet">
     <link rel="stylesheet" type="text/css" href={{ url_for("static", filename="main.css") }}>
 </head>
 
 <body>
     <div class="main">
-        <h1>MMCC Poller</h1>
+        <div class="title left">
+            <h1>MMCC Poller</h1>
+        </div>
 
-        <form method="post" action="/">
-            <label for="from">
-                <b>From</b>
-            </label>
-            <input value={{ last.from or '' }} required type="date" name="from">
+        <div class="center">
+            <form method="post" action="/">
+                <label for="from">
+                    <b>From:</b>
+                </label>
+                <input value={{ last.from or '' }} required type="date" name="from">
 
-            <label for="to">
-                <b>To</b>
-            </label>
-            <input value={{ last.to or '' }} required type="date" name="to">
+                <label for="to">
+                    <b>To:</b>
+                </label>
+                <input value={{ last.to or '' }} required type="date" name="to">
 
-            <label for="mode">
-                <b>Display Mode</b>
-            </label>
+                <label for="mode">
+                    <b>Display Mode:</b>
+                </label>
 
-            <select required name="mode">
-                <option {{ "selected" if last.mode == "week" or not last.mode }} value="week">Weekly average</option>
-                <option {{ "selected" if last.mode == "day" }} value="day">Daily average</option>
-                <option {{ "selected" if last.mode == "hour" }} value="hour">Hourly average</option>
-                <option {{ "selected" if last.mode == "raw" }} value="raw">Raw data</option>
-            </select>
+                <select required name="mode">
+                    <option {{ "selected" if last.mode == "week" or not last.mode }} value="week">Weekly average</option>
+                    <option {{ "selected" if last.mode == "day" }} value="day">Daily average</option>
+                    <option {{ "selected" if last.mode == "hour" }} value="hour">Hourly average</option>
+                    <option {{ "selected" if last.mode == "raw" }} value="raw">Raw data</option>
+                </select>
 
-            <button type="submit">Submit</button>
-        </form>
+                <button type="submit">Submit</button>
+            </form>
+        </div>
     </div>
 
     {% if img %}
-    <img src="data:image/png;base64, {{ img }}" alt="Poller result" />
+    <div class="center">
+        <img src="data:image/png;base64, {{ img }}" alt="Poller result" />
+    </div>
     {% endif %}
 
 </body>
