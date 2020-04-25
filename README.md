@@ -18,7 +18,7 @@ Before moving on to deploy the `poller` you will need to install the following d
 
 1. MySQL >=8.0 or MariaDB equivalent
 
-2. Python >=3.7 along with packages specified in `./src/web/requirements.txt`
+2. Python >=3.7 along with the packages specified in `./src/web/requirements.txt`
 
 3. .NET Core >=3.0
 
