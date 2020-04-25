@@ -18,10 +18,14 @@ def get():
 def post():
     f = request.form
     sql_response = get_sql_response(f["from"], f["to"])
-    if not sql_response:
+
+    try:
+        if not sql_response:
+            raise ValueError
+        img = get_img(sql_response, f["mode"])
+    except ValueError:
         return render(error="No data found for this range.", last=f)
 
-    img = get_img(sql_response, f["mode"])
     if not img:
         return render(error="Failed to generate chart.", last=f)
 
