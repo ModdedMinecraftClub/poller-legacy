@@ -5,7 +5,7 @@ from api.database import get_name_by_id
 
 def get_basic_info(sql_response):
     server_ids = get_unique_server_ids(sql_response)
-    server_names = get_server_names(server_ids, sql_response)
+    server_names = get_server_names(server_ids)
 
     return {"ids": server_ids, "names": server_names}
 
@@ -50,7 +50,7 @@ def get_unique_server_ids(sql_response):
     return r
 
 
-def get_server_names(ids, sql_response):
+def get_server_names(ids):
     d = {}
 
     for server_id in ids:
