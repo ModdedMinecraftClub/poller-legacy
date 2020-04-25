@@ -12,7 +12,7 @@ Available at <https://poller.moddedminecraft.club/.>
 
 ## Deployment
 
-### 1. Dependencies
+### 1. Installing dependencies
 
 Before moving on to deploy the `poller` you will need to install the following dependencies:
 
