@@ -24,7 +24,7 @@ def post():
             raise ValueError
         img = get_img(sql_response, f["mode"])
     except ValueError:
-        return render(error="No data found for this range.", last=f)
+        return render(error="No data found for this range or display mode.\nTry a different display mode and if that doesn't work, a different range.", last=f)
 
     if not img:
         return render(error="Failed to generate chart.", last=f)
