@@ -1,5 +1,6 @@
 import datetime
 from collections import OrderedDict
+from api.database import get_name_by_id
 
 
 def get_basic_info(sql_response):
@@ -50,12 +51,10 @@ def get_unique_server_ids(sql_response):
 
 
 def get_server_names(ids, sql_response):
-    d = dict()
+    d = {}
 
     for server_id in ids:
-        for ping in sql_response:
-            if ping.serverId == server_id:
-                d[server_id] = ping.serverName
+        d[server_id] = get_name_by_id(server_id)
 
     return d
 

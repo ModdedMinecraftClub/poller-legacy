@@ -11,6 +11,13 @@ def get_sql_response(start_date, end_date):
 
     return data
 
+@db_session
+def get_name_by_id(server_id):
+    data = db.select(
+        "SELECT server.serverName FROM server WHERE serverId = $server_id"
+    )
+
+    return data[0]
 
 config = get_config()
 db = Database()
