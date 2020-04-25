@@ -1,6 +1,9 @@
 -- Create database
 create database poller;
 
+-- Switch to the database
+use poller;
+
 -- Create tables
 create table server
 (
