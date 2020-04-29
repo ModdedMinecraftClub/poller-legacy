@@ -19,6 +19,14 @@ def get_name_by_id(server_id):
 
     return data[0]
 
+@db_session
+def get_all_servers():
+    data = db.select(
+        "SELECT server.serverId, server.serverName FROM server"
+    )
+
+    return data[0]
+
 config = get_config()
 db = Database()
 db.bind(
