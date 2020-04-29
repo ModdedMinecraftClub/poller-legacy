@@ -46,4 +46,50 @@ To build the data collector run the prepared `./src/data_collector/buildLinux.sh
 
 ### 5. Deploying the Web App
 
-// TODO
+// TODO - Universal deployment process
+
+**Below deployment process has been put together with MMCC in mind, and is Linux only, so it may not apply to your server.**
+
+1. Install the following packages:
+    1. `uwsgi`
+
+    2. `uwsgi-plugin-python3`
+
+    3. `python3-pip`
+
+    4. `python3-venv`
+
+2. Make a new `poller-web` user/group, clone the source folder in `~`, then in `./src/web`, where `.` is root folder of this repo run:
+    1. `python3 -m venv venv`
+
+    2. `source venv/bin/activate`
+
+    3. `pip3 install -r requirements.txt`
+
+3. Create `/usr/lib/systemd/system/poller-web.service`:
+
+```
+[Unit]
+Description=MMCC poller webapp
+
+[Service]
+Type=simple
+User=<user>
+Group=<group>
+ExecStart=/usr/bin/uwsgi --ini /path/to/poller-web.ini
+
+[Install]
+WantedBy=default.target
+```
+
+4. Run `sudo systemctl enable --now poller-web`
+
+5. You should see the socket in the directory with the `ini`
+then use this nginx location config:
+
+```nginx
+location / {
+    include uwsgi_params;
+    uwsgi_pass unix:/path/to/poller-web.sock;
+}
+```
