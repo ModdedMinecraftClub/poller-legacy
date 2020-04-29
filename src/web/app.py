@@ -1,3 +1,5 @@
+import gc
+
 from base64 import b64encode
 from datetime import timedelta
 
@@ -30,6 +32,9 @@ def post():
         return render(error="Failed to generate chart.", last=f)
 
     img = b64encode(img.getbuffer()).decode("utf-8")
+
+    gc.collect()
+    
     return render(img=img, last=f)
 
 
