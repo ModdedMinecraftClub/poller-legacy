@@ -10,7 +10,7 @@ Available at <https://poller.moddedminecraft.club/.>
 
 ![screenshot](./screenshots/screenshot.png)
 
-## minestat-sharp
+## Acknowledgement
 
 This project would not possible without [TraceLD/minestat-sharp](https://github.com/TraceLD/minestat-sharp) which is a fork of [FragLand/minestat](https://github.com/FragLand/minestat) created by [TraceLD](https://github.com/TraceLD/) - a member of MMCC Staff Team and co-author of `poller`. The modifications in `TraceLD/minestat-sharp` compared to `FragLand/minestat` include changing the structure to a C# Class Library packaged as a NuGet package instead of a single C# Class packaged as a standalone file, removal of obsolete code and minor refactorings.
 
