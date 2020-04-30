@@ -84,8 +84,7 @@ WantedBy=default.target
 
 4. Run `sudo systemctl enable --now poller-web`
 
-5. You should see the socket in the directory with the `ini`
-then use this nginx location config:
+5. You should now see the socket in the directory with the `ini` file. Then use the following `nginx` location config:
 
 ```nginx
 location / {
