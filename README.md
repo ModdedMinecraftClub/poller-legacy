@@ -52,7 +52,7 @@ To build the data collector run the prepared `./src/data_collector/buildLinux.sh
 
 // TODO - Universal deployment process
 
-**Below deployment process has been put together with MMCC in mind, and is Linux only, so it may not apply to your server.**
+**The deployment process described below has been put together with MMCC in mind and is Linux only, so it may not apply to your server.**
 
 1. Install the following packages:
     1. `uwsgi`
