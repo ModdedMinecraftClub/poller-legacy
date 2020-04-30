@@ -155,7 +155,3 @@ db_config.yml
 
 # Don't include user specific files
 *.user
-
-# Don't include example PNGs
-example1.png
-example2.png
