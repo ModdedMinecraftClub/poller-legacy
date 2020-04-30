@@ -1,6 +1,6 @@
 # poller
 
-Player count statistics tool for Minecraft server networks - tracking and displaying what servers are played. 
+Player count statistics tool for Minecraft server networks - tracking and displaying which servers are played. 
 
 Available at <https://poller.moddedminecraft.club/.>
 
